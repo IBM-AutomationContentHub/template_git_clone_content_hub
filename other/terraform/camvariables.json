@@ -1,0 +1,44 @@
+[
+    {
+      "name": "ip_address",
+      "label": "IP Address of Virtual Machine",
+      "description": "IP address of the virtual machine to clone repositories to",
+      "type": "string",
+      "hidden": false,
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "regex": "^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]).){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])$"
+    },
+    {
+      "name": "user",
+      "label": "User Name",
+      "description": "User name to access the virtual machine",
+      "type": "string",
+      "hidden": false,
+      "secured": false,
+      "required": true,
+      "immutable": false
+    },
+    {
+      "name": "user_password",
+      "label": "User Password",
+      "description": "User password to access the virtual machine",
+      "type": "string",
+      "hidden": false,
+      "secured": true,
+      "required": true,
+      "immutable": false
+    },
+    {
+      "name": "github_token",
+      "label": "Github Access Token",
+      "description": "Token used to access Github API to clone repositories",
+      "type": "string",
+      "default": "327e5a76234deb7eb44d17d74dcb5b14a26e227f",
+      "hidden": true,
+      "secured": true,
+      "required": true,
+      "immutable": true
+    }
+]

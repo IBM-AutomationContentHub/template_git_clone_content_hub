@@ -1,0 +1,63 @@
+{
+    "name": "Clone IBM-AutomationContentHub and IBM-CAMHub-Open",
+    "description": "Clone repositories in IBM-AutomationContentHub and IBM-CAMHub-Open to customer-provided virtual machine.",
+    "version": "1.0",
+    "imageUrl": "",
+    "image": "",
+    "type": "chefcontent",
+    "status": "active",
+    "manifest": {
+      "template_type": "Terraform",
+      "template_format": "HCL",
+      "template_provider": "Other",
+      "template": {
+        "templateData": "",
+        "templateVariables": "",
+        "templateOutput": ""
+      },
+      "template_source": {
+        "githubRepoUrl": "",
+        "githubAccessToken": "",
+        "relativePathToTemplateFolder": "git_clone_content_hub/other/terraform",
+        "templateFileName": "git_clone_content_hub.tf"
+      }
+    },
+    "metadata": {
+      "displayName": "Clone IBM-AutomationContentHub and IBM-CAMHub-Open",
+      "providerDisplayName": "Other",
+      "longDescription": "Clone all repositories in IBM-AutomationContentHub and IBM-CAMHub-Open in github.com to a virtual machine that is owned and provided by customer.",
+      "bullets": [
+       {
+         "title": "Clouds",
+         "description": "Any"
+       },
+       {
+         "title": "Template version",
+         "description": "V1.0"
+       },
+       {
+         "title": "Operating systems supported",
+         "description": "RHEL, CentOS, Ubuntu"
+       },
+       {
+         "title": "Topology",
+         "description": "1 virtual machine: <ul><li>- Allow access from CAM;</li><li>- Allow access to Internet;</li><li>- Allow password authentication for SSH.</li></ul>"
+       },
+       {
+         "title": "Usage and special notes",
+         "description": "<ul><li>1. Tools including curl and git will be installed in the virtual machine if they do not exist.</li><li>2. Please log into the virtual machine to check out the repositories cloned.</li></ul>"
+       }
+       ],    
+       "featuredImageUrl": "",
+       "imageUrl": "",
+       "mediumImageUrl": "",
+       "smallImageUrl": "",
+       "documentationUrl": "",
+       "termsUrl": "",
+       "media": [
+       ]
+    },
+    "toolchain": {
+      "git": "https://github.com/ibmcam/cam-toolchain"
+    }
+}

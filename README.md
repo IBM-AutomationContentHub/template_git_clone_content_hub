@@ -1,1 +1,1 @@
-# template_git_clone_content_hub
+Copyright IBM Corp. 2017, 2017
