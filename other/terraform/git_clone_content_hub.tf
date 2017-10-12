@@ -55,9 +55,19 @@ set -o pipefail
 
 GITHUB_TOKEN=$1
 
+function install_command()
+{
+install_cmd=""
+message="Command {} failed to be installed. Please review your base operating system, and attempt to update the image with the {} command. This may be an issue with: install repository or network connection"
+[[ -z "$1" ]] && { echo Command parameter missing on function ; exit 1 ; }
+[[ -z "$install_cmd" ]] && { [[ `command -v yum` ]] && install_cmd="yum" || install_cmd="apt-get" || true ; } || echo -e "Install-command : $install_cmd"
+if [[ ! `command -v $1` ]] ; then sudo $install_cmd install $1 -y -q || true; fi
+[[ `command -v $1` ]] && echo command $1 found || { echo $1 | xargs -i echo $message; exit 1 ; }
+}
+
 # Install git and curl
-[ -f /usr/bin/yum ] && sudo yum install git curl -y -q
-[ -f /usr/bin/apt-get ] && sudo apt-get install git curl -y -q
+install_command git  # Install the curl command
+install_command curl # Install the git command
 
 # Clone IBM-AutomationContentHub
 bash clonegit.sh --org IBM-AutomationContentHub --token $GITHUB_TOKEN --host github.com --refresh --private
@@ -198,6 +208,7 @@ do
 	shift; shift;
 done
 rm -f repo.list
+find $org -name catalog.json | xargs -i sed -i "s/chefcontent/userCreated/g" {}
 
 EOF
 
@@ -207,7 +218,13 @@ EOF
   # Execute the script remotely
   provisioner "remote-exec" {
     inline = [
-      "bash installation.sh \"${var.github_token}\"; rm -f installation.sh",
+      "sudo chmod +x ./installation.sh",
+      "bash -c  \"./installation.sh ${var.github_token}\""
+    ]
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "bash -c  \"rm -f clonegit.sh\""
     ]
   }
 }

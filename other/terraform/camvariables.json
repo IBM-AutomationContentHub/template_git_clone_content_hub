@@ -35,7 +35,7 @@
       "label": "Github Access Token",
       "description": "Token used to access Github API to clone repositories",
       "type": "string",
-      "default": "327e5a76234deb7eb44d17d74dcb5b14a26e227f",
+      "default": "d958520990f754ebbe1c432b29daabb9b2ba92c9",
       "hidden": true,
       "secured": true,
       "required": true,
