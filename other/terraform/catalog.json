@@ -1,7 +1,7 @@
 {
     "name": "Clone IBM-AutomationContentHub and IBM-CAMHub-Open",
     "description": "Clone repositories in IBM-AutomationContentHub and IBM-CAMHub-Open to customer-provided virtual machine.",
-    "version": "1.0",
+    "version": "1.0.0",
     "imageUrl": "",
     "image": "",
     "type": "chefcontent",
@@ -33,7 +33,7 @@
        },
        {
          "title": "Template version",
-         "description": "V1.0"
+         "description": "1.0.0"
        },
        {
          "title": "Operating systems supported",
