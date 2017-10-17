@@ -1,7 +1,7 @@
 {
     "name": "Clone IBM-AutomationContentHub and IBM-CAMHub-Open",
     "description": "Clone repositories in IBM-AutomationContentHub and IBM-CAMHub-Open to customer-provided virtual machine.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "imageUrl": "",
     "image": "",
     "type": "chefcontent",
@@ -33,11 +33,11 @@
        },
        {
          "title": "Template version",
-         "description": "1.0.0"
+         "description": "1.0.1"
        },
        {
          "title": "Operating systems supported",
-         "description": "RHEL, CentOS, Ubuntu"
+         "description": "Red Hat Enterprise Linux 6 and above<br>Ubuntu 14.04 LTS and higher<br>CentOS 7 and higher<br>"
        },
        {
          "title": "Topology",
@@ -47,7 +47,7 @@
          "title": "Usage and special notes",
          "description": "<ul><li>1. Tools including curl and git will be installed in the virtual machine if they do not exist.</li><li>2. Please log into the virtual machine to check out the repositories cloned.</li></ul>"
        }
-       ],    
+       ],
        "featuredImageUrl": "",
        "imageUrl": "",
        "mediumImageUrl": "",
