@@ -14,6 +14,10 @@
 # restricted by GSA ADP Schedule Contract with IBM Corp.
 # =================================================================
 
+provider "null" {
+  version = "~> 0.1"
+}
+
 #########################################################
 # Define the variables
 #########################################################
@@ -207,7 +211,7 @@ do
 	fi
 	shift; shift;
 done
-rm -f repo.list
+rm -rf repo.list `find $org -type d -name .git`
 find $org -name catalog.json | xargs -i sed -i "s/chefcontent/userCreated/g" {}
 
 EOF
@@ -218,13 +222,14 @@ EOF
   # Execute the script remotely
   provisioner "remote-exec" {
     inline = [
-      "sudo chmod +x ./installation.sh",
-      "bash -c  \"./installation.sh ${var.github_token}\""
+      "chmod +x ./installation.sh",
+      "bash -c  \"./installation.sh ${var.github_token}\"",
     ]
   }
+
   provisioner "remote-exec" {
     inline = [
-      "bash -c  \"rm -f clonegit.sh\""
+      "bash -c  \"rm -f clonegit.sh\"",
     ]
   }
 }

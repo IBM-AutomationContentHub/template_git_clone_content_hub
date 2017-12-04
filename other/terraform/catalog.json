@@ -1,7 +1,7 @@
 {
     "name": "Clone IBM-AutomationContentHub and IBM-CAMHub-Open",
     "description": "Clone repositories in IBM-AutomationContentHub and IBM-CAMHub-Open to customer-provided virtual machine.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "imageUrl": "",
     "image": "",
     "type": "chefcontent",
@@ -33,7 +33,7 @@
        },
        {
          "title": "Template version",
-         "description": "1.0.1"
+         "description": "1.0.2"
        },
        {
          "title": "Operating systems supported",
@@ -41,7 +41,7 @@
        },
        {
          "title": "Topology",
-         "description": "1 virtual machine: <ul><li>- Allow access from CAM;</li><li>- Allow access to Internet;</li><li>- Allow password authentication for SSH.</li></ul>"
+         "description": "1 virtual machine: <ul><li>- Allow access from CAM;</li><li>- Allow access to Internet;</li><li>- Allow password authentication for SSH.</li><li>- Allow user NOPASSWD sudo access to yum or apt-get to install git and curl;</li><li>- Allow name resolution of internet hosts, specifically github.com;</li></ul>"
        },
        {
          "title": "Usage and special notes",
