@@ -48,18 +48,6 @@
       "required": true,
       "immutable": false,
       "group_name": "content_template_input"
-    },
-    {
-      "name": "github_token",
-      "label": "Github Access Token",
-      "description": "Token used to access Github API to clone repositories",
-      "type": "string",
-      "default": "${advanced_content_runtime_chef.ibm_contenthub_git_access_token}",
-      "hidden": true,
-      "secured": true,
-      "required": true,
-      "immutable": true,
-      "group_name": "content_template_input"
     }
   ],
   "template_output_params": [

@@ -9,7 +9,7 @@
 # =================================================================
 # Licensed Materials - Property of IBM
 # 5737-E67
-# @ Copyright IBM Corporation 2016, 2017 All Rights Reserved
+# @ Copyright IBM Corporation 2016, 2018 All Rights Reserved
 # US Government Users Restricted Rights - Use, duplication or disclosure
 # restricted by GSA ADP Schedule Contract with IBM Corp.
 # =================================================================
@@ -31,10 +31,6 @@ variable "user" {
 
 variable "user_password" {
   description = "User password to access the virtual machine"
-}
-
-variable "github_token" {
-  description = "Token used to access Github API to clone repositories"
 }
 
 #########################################################
@@ -165,6 +161,10 @@ do
 		shift 2;
 		continue;
 	fi
+	if [ "$1" = "IBM-AutomationContentHub/template_git_clone_content_hub" ] ; then
+		shift 2;
+		continue;
+	fi
 	echo $2 | egrep "$grepString" > /dev/null
 	if [ $? = "0" ] ; then
 		# This record should be processed
@@ -223,7 +223,7 @@ EOF
   provisioner "remote-exec" {
     inline = [
       "chmod +x ./installation.sh",
-      "bash -c  \"./installation.sh ${var.github_token}\"",
+      "bash -c  \"./installation.sh d99485b3a1c209fa9562658ca953043c7988df2b\"",
     ]
   }
 
