@@ -128,6 +128,7 @@ else
 fi
 
 [[ -z $token || -z org ]] && { echo "Must specify org and token" ; exit 1; }
+[[ -e $org ]] && mv $org $org-`date | tr ' ' '_' | tr ':' '-'` # In case the script is run on the same machine
 
 # These should form the URL for pulling down all the repo information
 httpgit=https://api.$GITHUB_HOST/
@@ -211,7 +212,8 @@ do
 	fi
 	shift; shift;
 done
-rm -rf repo.list `find $org -type d -name .git`
+rm -rf repo.list 
+find $org -type f -name config | egrep "\.git/config" | xargs -i sed -i "s/$token@//g" {}
 find $org -name catalog.json | xargs -i sed -i "s/chefcontent/userCreated/g" {}
 
 EOF
@@ -223,7 +225,7 @@ EOF
   provisioner "remote-exec" {
     inline = [
       "chmod +x ./installation.sh",
-      "bash -c  \"./installation.sh d99485b3a1c209fa9562658ca953043c7988df2b\"",
+      "bash -c  \"./installation.sh fe44f1a5534b57faa4ef70af149af9c2fdbedac8\"",
     ]
   }
 
